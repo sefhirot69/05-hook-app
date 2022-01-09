@@ -15,9 +15,20 @@ const TodoApp = () => {
     });
 
 
-    useEffect( () => {
+    useEffect(() => {
         localStorage.setItem('todos', JSON.stringify(todos));
     }, [todos]);
+
+
+    const handleDelete = (todoId) => {
+
+        const action = {
+            type : 'delete',
+            payload: todoId
+        }
+
+        dispatch(action);
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -26,10 +37,9 @@ const TodoApp = () => {
             return;
         }
 
-        let desc = document.querySelector('input[name="description"]').value;
         const newTodo = {
             id: new Date().getTime(),
-            desc: desc,
+            desc: description,
             done: false
         };
 
@@ -57,7 +67,12 @@ const TodoApp = () => {
                                     key={todo.id}
                                 >
                                     <p className={"text-center"}>{i + 1}. {todo.desc}</p>
-                                    <button className={"btn btn-danger"}>Borrar</button>
+                                    <button
+                                        className={"btn btn-danger"}
+                                        onClick={() => handleDelete(todo.id)}
+                                    >
+                                        Borrar
+                                    </button>
                                 </li>
                             ))
                         }
@@ -80,7 +95,8 @@ const TodoApp = () => {
                         />
                         <button
                             type={"submit"}
-                            className={"btn btn-outline-primary mt-1 btn-block"}>
+                            className={"btn btn-outline-primary mt-1 btn-block"}
+                        >
                             Agregar
                         </button>
                     </form>
