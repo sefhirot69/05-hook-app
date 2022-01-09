@@ -6,7 +6,6 @@ const CallbackHook = () => {
 
     const [counter, setCounter] = useState(10);
 
-
     const increment = useCallback((num) => {
         setCounter(c => c + num);
     }, [setCounter]);
