@@ -14,15 +14,17 @@ const AppRouter = () => {
             <Router>
                 <div>
                     <Navbar/>
-                    <Routes>
-                        <Route exact path={"/"} element={<HomeScreen/>}/>
-                        <Route exact path={"/about"} element={<AboutScreen/>}/>
-                        <Route exact path={"/login"} element={<LoginScreen/>}/>
+                    <div className={"container"}>
+                        <Routes>
+                            <Route exact path={"/"} element={<HomeScreen/>}/>
+                            <Route exact path={"/about"} element={<AboutScreen/>}/>
+                            <Route exact path={"/login"} element={<LoginScreen/>}/>
 
-                        <Route path={"*"} element={ <main style={{ padding: "1rem" }}>
-                            <p>There's nothing here!</p>
-                        </main>}/>
-                    </Routes>
+                            <Route path={"*"} element={ <main style={{ padding: "1rem" }}>
+                                <p>There's nothing here!</p>
+                            </main>}/>
+                        </Routes>
+                    </div>
                 </div>
             </Router>
         </div>
