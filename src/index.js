@@ -15,9 +15,10 @@ import ReactDOM from 'react-dom';
 // import {Padre} from "./components/07-tarea-memo/Padre";
 // import TodoApp from "./components/08-useReducer/TodoApp";
 import MainApp from "./components/09-useContext/MainApp";
+import FormWithCustomHook from "./components/02-useEffect/FormWIthCustomHook";
 
 ReactDOM.render(
-    <MainApp/>,
+    <FormWithCustomHook/>,
     document.getElementById('root')
 );
 
